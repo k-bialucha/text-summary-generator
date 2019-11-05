@@ -1,7 +1,11 @@
 import morfeusz2
 from partition_to_sentences import partition_to_sentences
 
-sentence = 'Sercem realme X2 jest jeden z najwydajniejszych procesorów na rynku, tj. ośmiordzeniowy (8x Kryo 470; 8 nm). Telefon posiada aż 256 GB na pliki użytkownika.'
+input = open("input.txt", "r")
+
+sentence = input.read()
+
+input.close()
 
 morfeusz = morfeusz2.Morfeusz()
 
