@@ -1,11 +1,10 @@
 import morfeusz2
+from read_sentences import read_sentences
 from partition_to_sentences import partition_to_sentences
 
-input = open("input.txt", "r")
+sentences = read_sentences("input.txt")
 
-sentence = input.read()
-
-input.close()
+sentence = sentences[1]
 
 morfeusz = morfeusz2.Morfeusz()
 
