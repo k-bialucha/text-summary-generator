@@ -4,6 +4,7 @@ from read_sentences import read_sentences
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def output_sentences():
     sentences = read_sentences("input.txt")
