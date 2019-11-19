@@ -1,8 +1,8 @@
-from convert_to_base_words import convert_to_base_words
-from create_word_ranking import create_word_ranking
-from rank_sentences import rank_sentences
-from enhance_original_sentences import enhance_original_sentences
-from create_summary import create_summary
+from core.convert_to_base_words import convert_to_base_words
+from core.create_word_ranking import create_word_ranking
+from core.rank_sentences import rank_sentences
+from core.enhance_original_sentences import enhance_original_sentences
+from core.create_summary import create_summary
 
 
 def process_sentences(input_sentences):

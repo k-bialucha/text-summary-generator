@@ -1,5 +1,5 @@
 from read_sentences import read_sentences
-from process_sentences import process_sentences
+from core.process_sentences import process_sentences
 from write_sentences import write_sentences
 
 sentences = read_sentences("input.txt")
