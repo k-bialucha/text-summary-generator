@@ -6,10 +6,11 @@ def sortByOriginalOrder(val):
     return val[2]
 
 
-def create_summary(original_sentences_ranked, summary_ratio):
+def create_summary(original_sentences_ranked, summary_percent):
     original_sentences_ranked.sort(key=sortByRanking, reverse=True)
 
-    top_sentences_count = round(len(original_sentences_ranked) * summary_ratio)
+    top_sentences_count = round(
+        len(original_sentences_ranked) * summary_percent / 100)
 
     top_sentences = original_sentences_ranked[0:top_sentences_count]
 
