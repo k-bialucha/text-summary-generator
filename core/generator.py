@@ -7,8 +7,9 @@ from core.create_summary import create_summary
 
 class SummaryGenerator:
     config = {
-        "summary_percent": 40,
-        "ranking_aging": 0,
+        "summary_percent": 60,
+        "ranking_aging": 10,
+        "segment_boost": [(0, 20, 20), (80, 100, 15)]
     }
 
     def summarize(self, input_sentences):
@@ -24,6 +25,6 @@ class SummaryGenerator:
             base_form_sentences, word_ranking, self.config["ranking_aging"])
 
         original_sentences_ranked = enhance_original_sentences(
-            input_sentences, sentences_ranked)
+            input_sentences, sentences_ranked, self.config["segment_boost"])
 
         return create_summary(original_sentences_ranked, self.config["summary_percent"])
