@@ -6,7 +6,7 @@ def sortByOriginalOrder(val):
     return val[2]
 
 
-def create_summary(original_sentences_ranked, summary_percent):
+def create_summary(original_sentences_ranked, summary_percent, debug):
     original_sentences_ranked.sort(key=sortByRanking, reverse=True)
 
     top_sentences_count = round(
@@ -19,6 +19,16 @@ def create_summary(original_sentences_ranked, summary_percent):
     summary_sentences = []
 
     for enhanced_sentence in top_sentences:
-        summary_sentences.append(enhanced_sentence[0])
+        sentence = enhanced_sentence[0]
+
+        if debug:
+            original_index = str(enhanced_sentence[2])
+            ranking = str(round(enhanced_sentence[1], 2))
+
+            line = sentence.split('\n')[0]
+            summary_sentences.append(
+                line + ' [' + original_index + ', ' + ranking + ']\n')
+        else:
+            summary_sentences.append(sentence)
 
     return summary_sentences
