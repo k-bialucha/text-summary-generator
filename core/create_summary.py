@@ -25,9 +25,10 @@ def create_summary(original_sentences_ranked, summary_percent, debug):
             original_index = str(enhanced_sentence[2])
             ranking = str(round(enhanced_sentence[1], 2))
 
+            debug_part = ' [' + original_index + ', ' + ranking + ']\n'
+
             line = sentence.split('\n')[0]
-            summary_sentences.append(
-                line + ' [' + original_index + ', ' + ranking + ']\n')
+            summary_sentences.append(line + debug_part)
         else:
             summary_sentences.append(sentence)
 

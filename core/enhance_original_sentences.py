@@ -1,3 +1,4 @@
+import random
 from core.calculate_segment_boost import calculate_segment_boost
 
 
@@ -6,7 +7,10 @@ def enhance_original_sentences(original_sentences, sentences_ranked, segment_boo
 
     sentences_count = len(original_sentences)
 
-    for index, sentence in enumerate(original_sentences):
+    indices = list(range(0, sentences_count))
+
+    for index in indices:
+        sentence = original_sentences[index]
         ranking = sentences_ranked[index][1]
 
         boost = calculate_segment_boost(index, sentences_count, segment_boost)

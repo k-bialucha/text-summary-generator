@@ -1,9 +1,17 @@
 from math import floor
+import random
 
 
 def rank_sentences(base_form_sentences, word_ranking, ranking_aging):
+    sentences_count = len(base_form_sentences)
+
+    indices = list(range(0, sentences_count))
+
+    random.shuffle(indices)
+
     sentences_ranked = []
-    for sentence_base_words in base_form_sentences:
+    for index in indices:
+        sentence_base_words = base_form_sentences[index]
         ranking = 0
 
         for base_word in sentence_base_words:
