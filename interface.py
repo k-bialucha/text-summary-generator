@@ -4,7 +4,7 @@ from set_output import set_output
 
 
 class Interface:
-    HEIGHT = 1000
+    HEIGHT = 800
     WIDTH = 1000
     root = tk.Tk()
     frame = None
@@ -20,6 +20,7 @@ class Interface:
 
 
 def generate_interface(self):
+    self.root.minsize(self.WIDTH, self.HEIGHT)
     canvas = tk.Canvas(self.root, height=self.HEIGHT, width=self.WIDTH)
     canvas.pack()
 
@@ -93,14 +94,14 @@ def generate_interface(self):
     self.debug_c = tk.Checkbutton(self.frame, text="Debug", variable=checkbox, bg='#80c1ff')
     self.debug_c.place(relx=0.42, rely=0.83, relwidth=0.16)
     # , percent, aging, start_range, start_weight, end_range, end_weight, debug
-    button = tk.Button(self.frame, text="Generate", bg='white',
+    button = tk.Button(self.frame, text="Generate >>>", bg='white',
                        command=lambda: set_output(self.output, self.input.get("1.0", 'end'), self.percent_s.get(),
                                                   self.aging_s.get(),
                                                   self.s_range_s.get(), self.s_weight_s.get(), self.e_range_s.get(),
                                                   self.e_weight_s.get(), checkbox))
     button.place(relx=0.45, rely=0.9, relwidth=0.1)
 
-    self.output = tk.Message(self.frame, font=("Courier", 10), bg='white')
+    self.output = tk.Text(self.frame, state=tk.DISABLED)
     self.output.place(relx=0.6, rely=0, relwidth=0.4, relheight=1)
 
     self.root.mainloop()
