@@ -1,14 +1,5 @@
-from read_sentences import read_sentences
-from core.generator import SummaryGenerator
-from write_sentences import write_sentences
+from interface import Interface, generate_interface
 
-sentences = read_sentences("input.txt")
+interface = Interface()
 
-generator = SummaryGenerator()
-
-summary_sentences = generator.summarize(sentences)
-
-write_sentences("output.txt", summary_sentences)
-
-print('SUMMARY')
-print(summary_sentences)
+generate_interface(interface)
