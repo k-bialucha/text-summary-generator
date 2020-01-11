@@ -2,7 +2,7 @@ from core.summarize import summarize
 import tkinter as tk
 
 
-def set_output(output, text, percent, aging, start_range, start_weight, end_range, end_weight, debug):
+def set_output(output, text, percent, aging, start_range, start_weight, end_range, end_weight, debug, ignore):
 
     lines = text.splitlines()
     sentences = []
@@ -10,7 +10,7 @@ def set_output(output, text, percent, aging, start_range, start_weight, end_rang
     for sentence in lines:
         sentences.append(sentence)
 
-    summary_sentences = summarize(sentences, percent, aging, start_range, start_weight, end_range, end_weight, debug)
+    summary_sentences = summarize(sentences, percent, aging, start_range, start_weight, end_range, end_weight, debug, ignore)
     summary = ''.join(summary_sentences)
 
     output.config(state=tk.NORMAL)

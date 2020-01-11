@@ -21,7 +21,7 @@ def create_summary(original_sentences_ranked, summary_percent, debug):
     for enhanced_sentence in top_sentences:
         sentence = enhanced_sentence[0]
 
-        if debug:
+        if debug == 1:
             original_index = str(enhanced_sentence[2])
             ranking = str(round(enhanced_sentence[1], 2))
 
