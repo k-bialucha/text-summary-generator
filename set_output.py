@@ -12,6 +12,7 @@ def set_output(output, text, percent, aging, start_range, start_weight, end_rang
 
     summary_sentences = summarize(sentences, percent, aging, start_range, start_weight, end_range, end_weight, debug, ignore)
     summary = ''.join(summary_sentences)
+    summary = ' '.join(summary.split())
 
     output.config(state=tk.NORMAL)
     output.delete("1.0", tk.END)
