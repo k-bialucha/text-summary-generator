@@ -90,8 +90,11 @@ def generate_interface(self):
     self.e_weight_s = tk.Scale(end_f, from_=5, to=30, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.e_weight_s.place(relx=0.1, rely=0.65, relwidth=0.8)
 
+    blocked_l = tk.Label(self.frame, text="Blocked words:", bg='#80c1ff')
+    blocked_l.place(relx=0.42, rely=0.77, relwidth=0.16)
+
     self.blocked = tk.Text(self.frame)
-    self.blocked.place(relx=0.42, rely=0.78, relwidth=0.16, relheight=0.1)
+    self.blocked.place(relx=0.42, rely=0.8, relwidth=0.16, relheight=0.1)
 
     checkbox = tk.IntVar()
     self.debug_c = tk.Checkbutton(self.frame, text="Debug", variable=checkbox, bg='#80c1ff')
