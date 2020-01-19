@@ -19,6 +19,7 @@ class Interface:
     blocked = None
     debug_c = None
 
+
 def generate_interface(self):
     self.root.minsize(self.WIDTH, self.HEIGHT)
     canvas = tk.Canvas(self.root, height=self.HEIGHT, width=self.WIDTH)
@@ -30,7 +31,8 @@ def generate_interface(self):
     self.frame = tk.Frame(background, bg='#80c1ff')
     self.frame.place(relx=0.05, rely=0.1, relwidth=0.9, relheight=0.8)
 
-    title = tk.Label(background, text="Summary Generator", bg='#80c1ff', font=("Courier", 30))
+    title = tk.Label(background, text="Summary Generator",
+                     bg='#80c1ff', font=("Courier", 30))
     title.place(relx=0.05, rely=0.03, relwidth=0.9)
 
     self.input = tk.Text(self.frame)
@@ -42,8 +44,10 @@ def generate_interface(self):
     percent_l = tk.Label(percent_f, text="Percent:", bg='white')
     percent_l.place(relx=0.1, rely=0, relwidth=0.8)
 
-    self.percent_s = tk.Scale(percent_f, from_=30, to=70, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.percent_s = tk.Scale(
+        percent_f, from_=0, to=100, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.percent_s.place(relx=0.1, rely=0.3, relwidth=0.8)
+    self.percent_s.set(50)
 
     aging_f = tk.Frame(self.frame, bg='white')
     aging_f.place(relx=0.42, rely=0.15, relwidth=0.16, relheight=0.12)
@@ -51,13 +55,16 @@ def generate_interface(self):
     aging_l = tk.Label(aging_f, text="Ranking aging:", bg='white')
     aging_l.place(relx=0.1, rely=0, relwidth=0.8)
 
-    self.aging_s = tk.Scale(aging_f, from_=0, to=100, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.aging_s = tk.Scale(aging_f, from_=0, to=100,
+                            orient=tk.HORIZONTAL, bg='#80c1ff')
     self.aging_s.place(relx=0.1, rely=0.3, relwidth=0.8)
+    self.aging_s.set(15)
 
     boost_f = tk.Frame(self.frame, bg='white')
     boost_f.place(relx=0.42, rely=0.3, relwidth=0.16, relheight=0.45)
 
-    boost_l = tk.Label(boost_f, text="S\nE\nG\nM\nE\nN\nT\n\nB\nO\nO\nS\nT\n", bg='white')
+    boost_l = tk.Label(
+        boost_f, text="S\nE\nG\nM\nE\nN\nT\n\nB\nO\nO\nS\nT\n", bg='white')
     boost_l.place(relx=0.05, rely=0.2, relwidth=0.1)
 
     start_f = tk.Frame(boost_f, bg='#80c1ff')
@@ -66,14 +73,18 @@ def generate_interface(self):
     s_range_l = tk.Label(start_f, text="Start range:", bg='#80c1ff')
     s_range_l.place(relx=0.1, rely=0, relwidth=0.8)
 
-    self.s_range_s = tk.Scale(start_f, from_=0, to=20, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.s_range_s = tk.Scale(start_f, from_=0, to=50,
+                              orient=tk.HORIZONTAL, bg='#80c1ff')
     self.s_range_s.place(relx=0.1, rely=0.15, relwidth=0.8)
+    self.s_range_s.set(20)
 
     s_weight_l = tk.Label(start_f, text="Start weight:", bg='#80c1ff')
     s_weight_l.place(relx=0.1, rely=0.50, relwidth=0.8)
 
-    self.s_weight_s = tk.Scale(start_f, from_=5, to=30, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.s_weight_s = tk.Scale(
+        start_f, from_=5, to=50, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.s_weight_s.place(relx=0.1, rely=0.65, relwidth=0.8)
+    self.s_weight_s.set(15)
 
     end_f = tk.Frame(boost_f, bg='#80c1ff')
     end_f.place(relx=0.2, rely=0.55, relwidth=0.7, relheight=0.4)
@@ -81,23 +92,30 @@ def generate_interface(self):
     e_range_l = tk.Label(end_f, text="End range:", bg='#80c1ff')
     e_range_l.place(relx=0.1, rely=0, relwidth=0.8)
 
-    self.e_range_s = tk.Scale(end_f, from_=0, to=20, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.e_range_s = tk.Scale(end_f, from_=0, to=50,
+                              orient=tk.HORIZONTAL, bg='#80c1ff')
     self.e_range_s.place(relx=0.1, rely=0.15, relwidth=0.8)
+    self.e_range_s.set(20)
 
     e_weight_l = tk.Label(end_f, text="End weight:", bg='#80c1ff')
     e_weight_l.place(relx=0.1, rely=0.5, relwidth=0.8)
 
-    self.e_weight_s = tk.Scale(end_f, from_=5, to=30, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.e_weight_s = tk.Scale(
+        end_f, from_=5, to=50, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.e_weight_s.place(relx=0.1, rely=0.65, relwidth=0.8)
+    self.e_weight_s.set(15)
 
     blocked_l = tk.Label(self.frame, text="Blocked words:", bg='#80c1ff')
     blocked_l.place(relx=0.42, rely=0.77, relwidth=0.16)
 
     self.blocked = tk.Text(self.frame)
     self.blocked.place(relx=0.42, rely=0.8, relwidth=0.16, relheight=0.1)
+    self.blocked.delete("1.0", tk.END)
+    self.blocked.insert("end-1c", "być co ")
 
     checkbox = tk.IntVar()
-    self.debug_c = tk.Checkbutton(self.frame, text="Debug", variable=checkbox, bg='#80c1ff')
+    self.debug_c = tk.Checkbutton(
+        self.frame, text="Debug", variable=checkbox, bg='#80c1ff')
     self.debug_c.place(relx=0.42, rely=0.9, relwidth=0.16)
 
     button = tk.Button(self.frame, text="Generate >>>", bg='white',
