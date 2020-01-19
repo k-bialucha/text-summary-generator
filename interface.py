@@ -51,7 +51,7 @@ def generate_interface(self):
     aging_l = tk.Label(aging_f, text="Ranking aging:", bg='white')
     aging_l.place(relx=0.1, rely=0, relwidth=0.8)
 
-    self.aging_s = tk.Scale(aging_f, from_=3, to=7, orient=tk.HORIZONTAL, bg='#80c1ff')
+    self.aging_s = tk.Scale(aging_f, from_=0, to=100, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.aging_s.place(relx=0.1, rely=0.3, relwidth=0.8)
 
     boost_f = tk.Frame(self.frame, bg='white')
