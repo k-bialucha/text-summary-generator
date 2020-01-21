@@ -13,7 +13,7 @@ def rank_sentences(base_form_sentences, word_ranking, ranking_aging):
 
     # shuffle original indices
     # to get more fair ranking
-    random.Random(999).shuffle(indices)
+    random.Random(10).shuffle(indices)
 
     sentences_ranked = []
     for index in indices:

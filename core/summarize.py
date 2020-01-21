@@ -6,7 +6,7 @@ from core.create_summary import create_summary
 from core.remove_blocked_words import remove_blocked_words
 
 
-def summarize(input_sentences, percent, aging, start_range, start_weight, end_range, end_weight, debug, ignore):
+def summarize(input_sentences, percent, aging, start_range, start_weight, end_range, end_weight, debug, ignore, use_special_words):
     base_form_sentences = []
 
     sentences = remove_blocked_words(input_sentences, ignore)
@@ -15,7 +15,7 @@ def summarize(input_sentences, percent, aging, start_range, start_weight, end_ra
         base_words = convert_to_base_words(sentence)
         base_form_sentences.append(base_words)
 
-    word_ranking = create_word_ranking(base_form_sentences)
+    word_ranking = create_word_ranking(base_form_sentences, use_special_words)
 
     sentences_ranked = rank_sentences(
         base_form_sentences, word_ranking, aging)

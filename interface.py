@@ -115,6 +115,7 @@ def generate_interface(self):
     self.blocked.insert("end-1c", "być co się tam ten")
 
     special_words_value = tk.IntVar()
+    special_words_value.set(1)
     self.special_words_c = tk.Checkbutton(
         self.frame, text="Use Special Words", variable=special_words_value, bg='#80c1ff')
     self.special_words_c.place(relx=0.42, rely=0.88, relwidth=0.16)

@@ -23,7 +23,7 @@ special_words = {
 }
 
 
-def create_word_ranking(base_form_sentences):
+def create_word_ranking(base_form_sentences, use_special_words):
     word_rank = dict()
 
     for sentence_base_words in base_form_sentences:
@@ -31,7 +31,7 @@ def create_word_ranking(base_form_sentences):
             current_word_ranking = word_rank.get(base_word)
 
             importance = 1
-            if special_words.get(base_word) != None:
+            if use_special_words and special_words.get(base_word) != None:
                 importance = special_words.get(base_word)
 
             if current_word_ranking:

@@ -21,14 +21,12 @@ def create_summary(original_sentences_ranked, summary_percent, debug):
     for enhanced_sentence in top_sentences:
         sentence = enhanced_sentence[0]
 
-        if debug == 1:
-            original_index = str(enhanced_sentence[2])
-            ranking = str(round(enhanced_sentence[1], 2))
-
-            debug_part = ' [' + original_index + ', ' + ranking + ']\n'
+        if debug:
+            original_index = str(enhanced_sentence[2] + 1)
+            ranking = ' [' + str(round(enhanced_sentence[1], 2)) + ']\n'
 
             line = sentence.split('\n')[0]
-            summary_sentences.append(line + debug_part)
+            summary_sentences.append(original_index + ' ' + line + ranking)
         else:
             summary_sentences.append(sentence)
 
