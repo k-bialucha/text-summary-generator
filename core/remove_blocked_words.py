@@ -1,12 +1,12 @@
 import re
 
 
-def remove_blocked_words(sentences, blocked):
-    blocked_words = blocked.split()
+def remove_blocked_words(base_words, ignored):
+    ignored_words = ignored.split()
+    allowed_words = list()
 
-    for blocked_word in blocked_words:
-        pattern = re.compile(blocked_word, re.IGNORECASE)
-        for index, sentence in enumerate(sentences):
-            sentences[index] = pattern.sub("", sentence)
+    for word in base_words:
+        if word not in ignored_words:
+            allowed_words.append(word)
 
-    return sentences
+    return allowed_words
