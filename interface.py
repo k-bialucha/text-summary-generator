@@ -18,6 +18,7 @@ class Interface:
     e_weight_s = None
     blocked = None
     debug_c = None
+    special_words_c = None
 
 
 def generate_interface(self):
@@ -50,7 +51,7 @@ def generate_interface(self):
     self.percent_s.set(50)
 
     aging_f = tk.Frame(self.frame, bg='white')
-    aging_f.place(relx=0.42, rely=0.15, relwidth=0.16, relheight=0.12)
+    aging_f.place(relx=0.42, rely=0.14, relwidth=0.16, relheight=0.12)
 
     aging_l = tk.Label(aging_f, text="Ranking aging:", bg='white')
     aging_l.place(relx=0.1, rely=0, relwidth=0.8)
@@ -61,7 +62,7 @@ def generate_interface(self):
     self.aging_s.set(15)
 
     boost_f = tk.Frame(self.frame, bg='white')
-    boost_f.place(relx=0.42, rely=0.3, relwidth=0.16, relheight=0.45)
+    boost_f.place(relx=0.42, rely=0.28, relwidth=0.16, relheight=0.45)
 
     boost_l = tk.Label(
         boost_f, text="S\nE\nG\nM\nE\nN\nT\n\nB\nO\nO\nS\nT\n", bg='white')
@@ -106,24 +107,29 @@ def generate_interface(self):
     self.e_weight_s.set(15)
 
     blocked_l = tk.Label(self.frame, text="Blocked words:", bg='#80c1ff')
-    blocked_l.place(relx=0.42, rely=0.77, relwidth=0.16)
+    blocked_l.place(relx=0.42, rely=0.74, relwidth=0.16)
 
     self.blocked = tk.Text(self.frame)
-    self.blocked.place(relx=0.42, rely=0.8, relwidth=0.16, relheight=0.1)
+    self.blocked.place(relx=0.42, rely=0.77, relwidth=0.16, relheight=0.1)
     self.blocked.delete("1.0", tk.END)
-    self.blocked.insert("end-1c", "być co ")
+    self.blocked.insert("end-1c", "być co się tam ten")
 
-    checkbox = tk.IntVar()
+    special_words_value = tk.IntVar()
+    self.special_words_c = tk.Checkbutton(
+        self.frame, text="Use Special Words", variable=special_words_value, bg='#80c1ff')
+    self.special_words_c.place(relx=0.42, rely=0.88, relwidth=0.16)
+
+    debug_value = tk.IntVar()
     self.debug_c = tk.Checkbutton(
-        self.frame, text="Debug", variable=checkbox, bg='#80c1ff')
-    self.debug_c.place(relx=0.42, rely=0.9, relwidth=0.16)
+        self.frame, text="Debug", variable=debug_value, bg='#80c1ff')
+    self.debug_c.place(relx=0.42, rely=0.92, relwidth=0.16)
 
     button = tk.Button(self.frame, text="Generate >>>", bg='white',
                        command=lambda: set_output(self.output, self.input.get("1.0", 'end'), self.percent_s.get(),
                                                   self.aging_s.get(),
                                                   self.s_range_s.get(), self.s_weight_s.get(), self.e_range_s.get(),
-                                                  self.e_weight_s.get(), checkbox.get(), self.blocked.get("1.0", 'end')))
-    button.place(relx=0.45, rely=0.95, relwidth=0.1)
+                                                  self.e_weight_s.get(), debug_value.get(), self.blocked.get("1.0", 'end'), special_words_value.get()))
+    button.place(relx=0.45, rely=0.963, relwidth=0.1)
 
     self.output = tk.Text(self.frame, state=tk.DISABLED)
     self.output.place(relx=0.6, rely=0, relwidth=0.4, relheight=1)
