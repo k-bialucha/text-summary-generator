@@ -17,6 +17,7 @@ special_words = {
     "tani": 1.7,
     "wersja": 1.7,
     "android": 1.5,
+    "Android": 1.5,
     "iOS": 1.5,
     "producent": 1.3,
     "interfejs": 1.3,

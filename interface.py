@@ -83,7 +83,7 @@ def generate_interface(self):
     s_weight_l.place(relx=0.1, rely=0.50, relwidth=0.8)
 
     self.s_weight_s = tk.Scale(
-        start_f, from_=5, to=50, orient=tk.HORIZONTAL, bg='#80c1ff')
+        start_f, from_=0, to=50, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.s_weight_s.place(relx=0.1, rely=0.65, relwidth=0.8)
     self.s_weight_s.set(15)
 
@@ -102,7 +102,7 @@ def generate_interface(self):
     e_weight_l.place(relx=0.1, rely=0.5, relwidth=0.8)
 
     self.e_weight_s = tk.Scale(
-        end_f, from_=5, to=50, orient=tk.HORIZONTAL, bg='#80c1ff')
+        end_f, from_=0, to=50, orient=tk.HORIZONTAL, bg='#80c1ff')
     self.e_weight_s.place(relx=0.1, rely=0.65, relwidth=0.8)
     self.e_weight_s.set(15)
 
@@ -121,6 +121,8 @@ def generate_interface(self):
     self.special_words_c.place(relx=0.42, rely=0.88, relwidth=0.16)
 
     debug_value = tk.IntVar()
+    debug_value.set(1)
+
     self.debug_c = tk.Checkbutton(
         self.frame, text="Debug", variable=debug_value, bg='#80c1ff')
     self.debug_c.place(relx=0.42, rely=0.92, relwidth=0.16)
